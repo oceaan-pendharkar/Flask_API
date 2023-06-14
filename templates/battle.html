@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battle!</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <p class="typewriter">
+        {{ output | safe}}
+    </p>
+    <h2>The generated number was:
+        {{ generated_number | safe}}
+    </h2>
+    <form id="battle=form" action="/move" method="post">
+        <input type="text" name="direction-input" id="direction-input" />
+        <input type="text" name="character" value="{{ character }}" style="display: none;" />
+        <input type=" text" name="enemy" value="{{ enemy }}" style="display: none;" />
+        <input type="submit" id="submit" value="Submit" style="display: none;" />
+    </form>
+    <h3>Character Info</h3>
+    <div class="container">
+        <ul id="character-info-list">
+            <li id="Name">
+                Name:
+                {{ character['Name'] }}
+            </li>
+            <li id="level">Level:
+                {{ character['Level'] }}
+            </li>
+            <li id="Fitness">
+                Fitness:
+                {{ character['Fitness'] }}
+            </li>
+            <li id="Intelligence">
+                Intelligence:
+                {{ character['Intelligence'] }}
+            </li>
+            <li id="Luck">
+                Luck:
+                {{ character['Luck'] }}
+            </li>
+            <li id="Max-Frustration">
+                Max Frustration:
+                {{ character['Max Frustration'] }}
+            </li>
+            <li id="Motivation">
+                Motivation:
+                {{ character['Motivation'] }}
+            </li>
+            <li id="Self-Control">
+                Self-Control:
+                {{ character['Self-Control'] }}
+            </li>
+            <li id="Speed">
+                Speed:
+                {{ character['Speed'] }}
+            </li>
+            <li id="row">
+                Row:
+                <span id="current-row">{{ character['row'] }}</span>
+            </li>
+            <li id="column">
+                Column:
+                <span id="current-column">{{ character['column'] }}</span>
+        </ul>
+        <div class="grid">
+            <div class="row">
+                <div class="cell" id="00">O</div>
+                <div class="cell" id="01">O</div>
+                <div class="cell" id="02">O</div>
+                <div class="cell" id="03">O</div>
+                <div class="cell" id="04">O</div>
+                <div class="cell" id="05">O</div>
+                <div class="cell" id="06">O</div>
+                <div class="cell" id="07">O</div>
+                <div class="cell" id="08">O</div>
+                <div class="cell" id="09">O</div>
+            </div>
+            <div class="row">
+                <div class="cell" id="10">O</div>
+                <div class="cell" id="11">O</div>
+                <div class="cell" id="12">O</div>
+                <div class="cell" id="13">O</div>
+                <div class="cell" id="14">O</div>
+                <div class="cell" id="15">O</div>
+                <div class="cell" id="16">O</div>
+                <div class="cell" id="17">O</div>
+                <div class="cell" id="18">O</div>
+                <div class="cell" id="19">O</div>
+            </div>
+            <div class="row">
+                <div class="cell" id="20">O</div>
+                <div class="cell" id="21">O</div>
+                <div class="cell" id="22">O</div>
+                <div class="cell" id="23">O</div>
+                <div class="cell" id="24">O</div>
+                <div class="cell" id="25">O</div>
+                <div class="cell" id="26">O</div>
+                <div class="cell" id="27">O</div>
+                <div class="cell" id="28">O</div>
+                <div class="cell" id="29">O</div>
+            </div>
+            <div class="row">
+                <div class="cell" id="30">O</div>
+                <div class="cell" id="31">O</div>
+                <div class="cell" id="32">O</div>
+                <div class="cell" id="33">O</div>
+                <div class="cell" id="34">O</div>
+                <div class="cell" id="35">O</div>
+                <div class="cell" id="36">O</div>
+                <div class="cell" id="37">O</div>
+                <div class="cell" id="38">O</div>
+                <div class="cell" id="39">O</div>
+            </div>
+            <div class="row">
+                <div class="cell" id="40">O</div>
+                <div class="cell" id="41">O</div>
+                <div class="cell" id="42">O</div>
+                <div class="cell" id="43">O</div>
+                <div class="cell" id="44">O</div>
+                <div class="cell" id="45">O</div>
+                <div class="cell" id="46">O</div>
+                <div class="cell" id="47">O</div>
+                <div class="cell" id="48">O</div>
+                <div class="cell" id="49">O</div>
+            </div>
+            <div class="row">
+                <div class="cell" id="50">O</div>
+                <div class="cell" id="51">O</div>
+                <div class="cell" id="52">O</div>
+                <div class="cell" id="53">O</div>
+                <div class="cell" id="54">O</div>
+                <div class="cell" id="55">O</div>
+                <div class="cell" id="56">O</div>
+                <div class="cell" id="57">O</div>
+                <div class="cell" id="58">O</div>
+                <div class="cell" id="59">O</div>
+            </div>
+            <div class="row">
+                <div class="cell" id="60">O</div>
+                <div class="cell" id="61">O</div>
+                <div class="cell" id="62">O</div>
+                <div class="cell" id="63">O</div>
+                <div class="cell" id="64">O</div>
+                <div class="cell" id="65">O</div>
+                <div class="cell" id="66">O</div>
+                <div class="cell" id="67">O</div>
+                <div class="cell" id="68">O</div>
+                <div class="cell" id="69">O</div>
+            </div>
+            <div class="row">
+                <div class="cell" id="70">O</div>
+                <div class="cell" id="71">O</div>
+                <div class="cell" id="72">O</div>
+                <div class="cell" id="73">O</div>
+                <div class="cell" id="74">O</div>
+                <div class="cell" id="75">O</div>
+                <div class="cell" id="76">O</div>
+                <div class="cell" id="77">O</div>
+                <div class="cell" id="78">O</div>
+                <div class="cell" id="79">O</div>
+            </div>
+            <div class="row">
+                <div class="cell" id="80">O</div>
+                <div class="cell" id="81">O</div>
+                <div class="cell" id="82">O</div>
+                <div class="cell" id="83">O</div>
+                <div class="cell" id="84">O</div>
+                <div class="cell" id="85">O</div>
+                <div class="cell" id="86">O</div>
+                <div class="cell" id="87">O</div>
+                <div class="cell" id="88">O</div>
+                <div class="cell" id="89">O</div>
+            </div>
+            <div class="row">
+                <div class="cell" id="90">O</div>
+                <div class="cell" id="91">O</div>
+                <div class="cell" id="92">O</div>
+                <div class="cell" id="93">O</div>
+                <div class="cell" id="94">O</div>
+                <div class="cell" id="95">O</div>
+                <div class="cell" id="96">O</div>
+                <div class="cell" id="97">O</div>
+                <div class="cell" id="98">O</div>
+                <div class="cell" id="99">O</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    //grab the #current-row
+    var currentRow = document.getElementById("current-row");
+    //grab the #current-column
+    var currentColumn = document.getElementById("current-column");
+
+    var currentRowValue = currentRow.innerText.toString();
+    var currentColumnValue = currentColumn.innerText.toString();
+
+    // grab the cell with the id of currentRowValue + currentColumnValue
+    var currentCell = document.getElementById(currentColumnValue + currentRowValue);
+    // make the innerText of currentCell an X
+    currentCell.innerText = "X";
+
+</script>
