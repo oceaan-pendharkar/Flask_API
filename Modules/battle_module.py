@@ -1,7 +1,3 @@
-"""
-Oceaan Pendharkar A01253605
-Martin Siu A01352270
-"""
 import random
 import copy
 import Modules.character

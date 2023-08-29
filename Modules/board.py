@@ -1,7 +1,3 @@
-"""
-Oceaan Pendharkar A01253605
-Martin Siu A01352270
-"""
 import random
 import Modules.battle_module
 LOCATIONS = ('Some BCIT Classroom', 'Tim Hortons', "McDonald's", 'Home',
