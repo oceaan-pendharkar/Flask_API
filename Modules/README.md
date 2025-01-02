@@ -20,7 +20,7 @@ You'll also notice a requirements.txt file with all dependencies listed, which y
 ## Installation
 
 1. Clone this repository to your local machine 
-2. Navigate to the project directory: `cd flask-game-app`
+2. Navigate to the project directory: `cd FLASK_API`
 3. Create a virtual environment: `python -m venv venv`
 4. Activate the virtual environment:
    - For Windows: `venv\Scripts\activate`
